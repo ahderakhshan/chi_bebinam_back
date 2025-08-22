@@ -6,6 +6,10 @@ import google.generativeai as genai
 from flask_cors import CORS
 from dotenv import load_dotenv
 
+env_file = load_dotenv(dotenv_path=".env")
+api_key = os.getenv("API_KEY")
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel('gemini-1.5-flash')
 app = Flask(__name__)
 CORS(app)
 
@@ -37,8 +41,4 @@ def movie_recommender():
 
 
 if __name__ == '__main__':
-    env_file = load_dotenv(dotenv_path=".env")
-    api_key = os.getenv("API_KEY")
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    app.run(debug=True)
+    app.run(debug=False)
