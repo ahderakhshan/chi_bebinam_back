@@ -30,6 +30,7 @@ def movie_recommender():
         base_prompt += f"\nQuestion: {question}, Answer: {answer}"
     response = model.generate_content(base_prompt)
     response_text = response.text
+    print(response_text)
     response_value = response_text.split("*")
     result = {}
     for key_value in response_value:
