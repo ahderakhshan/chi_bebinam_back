@@ -28,13 +28,7 @@ def movie_recommender():
         question = question_answer["question"]
         answer = question_answer["answer"]
         base_prompt += f"\nQuestion: {question}, Answer: {answer}"
-    response = model.generate_content(
-        base_prompt,
-        generation_config=genai.types.GenerationConfig(
-            temperature=2.0,
-            top_k=5000,
-        )
-    )
+    response = model.generate_content(base_prompt)
     response_text = response.text
     print(response_text)
     response_value = response_text.split("*")
