@@ -32,7 +32,7 @@ def movie_recommender():
         base_prompt,
         generation_config=genai.types.GenerationConfig(
             temperature=2.0,
-            top_k=500,
+            top_k=5000,
         )
     )
     response_text = response.text
