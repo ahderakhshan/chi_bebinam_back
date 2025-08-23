@@ -31,8 +31,8 @@ def movie_recommender():
     response = model.generate_content(
         base_prompt,
         generation_config=genai.types.GenerationConfig(
-            temperature=1.0,
-            top_k=200,
+            temperature=2.0,
+            top_k=500,
         )
     )
     response_text = response.text
